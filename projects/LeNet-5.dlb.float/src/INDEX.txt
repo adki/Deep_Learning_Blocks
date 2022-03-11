@@ -1,0 +1,17 @@
+
+main.cpp
+    |
+    +-- define.h                       (type definitions and macros)
+    +-- arg_parser()@main.cpp
+    +-- etc.h/c                        (message handling)
+    +-- mem_test.h/c                   (memory testing)
+    +-- get_image.hpp
+    |      |
+    |      +-- preprocess.h/c
+    |              |
+    |              +-- stb_image.h
+    +-- softmax.hpp
+    +-- lent5_infer.hpp
+           |
+           +-- defines_dpu.h           (defines from dpu/hw/design/verilog)
+           +-- lenet5_params.h         (parameters from Training results)

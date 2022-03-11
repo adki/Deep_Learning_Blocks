@@ -1,0 +1,37 @@
+
+* Prepare trained-parameters
+
+  1. Go to DLR_Projects.master/LeNet-5/LeNet-5.pytorch
+  2. Refer to 'HowToRun.txt'
+  3. Prepare 'lenet5_params.h'
+
+
+* To run co-simulation using BFM
+
+  1. Change 'RUN_TYPE=COSIM_BFM' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make
+  5. $ make run_dpi
+
+* To run CON-FMC
+  - Do not forget to program FPGA board
+
+  1. Change 'RUN_TYPE=TRX_AXI' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make
+  5. $ make run
+     $ make run_all
+
+* How to change USR_CLK_FREQ, i.e., ACLK
+  set 'USR_CLK_FREQ' macro in 'hw/design/verilog/defines_system_source.v'
+  - Note 'defines_system.v' is driven from 'defines_system_source.v'
+   
+================================================================================
+Use data in "lenet5_params.h".
+Use software pipeline scheme that uses the results of previous layer for
+the inputs of next layer, in which weights/parameters/biases are loaedd
+to the memory before running for each layer.
+
+================================================================================
