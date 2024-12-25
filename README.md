@@ -76,18 +76,32 @@ Refer to "[How to Prepare DPU Development Environment](./doc/PrepareLecture_2022
 
 The picture below shows how to verify DLB blocks.
 
-| <img src="doc/images/dpu-chip.png" width="200" /> | <img width=30 /> | <img src="doc/images/dpu-fpga.png" width="200" /> | <img width=30 />| <img src="doc/images/dpu-cosim.png" width="200" /> |
-|:---:| |:---:| |:---:|
-| *DPU on board* | | *DPU on FPGA* | | *DPU HW/SW co-simulation* |
+<table>
+<tr> <td scope="col"><img src="doc/images/dpu-chip.png" width="200" /></td>
+     <td scope="col"><img src="doc/images/dpu-fpga.png" width="200" /></td>
+     <td scope="col"><img src="doc/images/dpu-cosim.png" width="200" /></td>
+</tr>
+<tr> <td scope="col">DPU on board</td>
+     <td scope="col">DPU on FPGA</td>
+     <td scope="col">DPU HW/SW co-simulation</td>
+</tr>
+</table>
 
 &nbsp;&nbsp;
 
 As shown in the picture below, DLB blocks are verified along with
 HDL (Hardware Description Language), C/C++, and Python.
 
-| <img src="doc/images/dlb-hdl.png" width="150" height="100" /> |<img width=30/>| <img src="doc/images/dlb-c.png" width="200" /> |<img width=30/>| <img src="doc/images/dlb-pytorch.png" width="200" />|
-|:---:| |:---:| |:---:|
-| *DLB with HDL* | | *DLB with C* | | *DLR with Python*|
+<table>
+<tr> <td scope="col"><img src="doc/images/dlb-hdl.png" width="150" height="100" /></td>
+     <td scope="col"><img src="doc/images/dlb-c.png" width="200" /></td>
+     <td scope="col"><img src="doc/images/dlb-pytorch.png" width="200" /></td>
+</tr>
+<tr> <td scope="col">DLB with HDL</td>
+     <td scope="col">DLB with C</td>
+     <td scope="col">DLR with Python</td>
+</tr>
+</table>
 
 &nbsp;&nbsp;
 

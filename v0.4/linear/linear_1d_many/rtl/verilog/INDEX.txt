@@ -1,0 +1,9 @@
+linear_1d.v
+    |
+    +--linear_1d_csr.v
+    +--linear_1d_control.v
+    |     |
+    |     +--linear_1d_control_input.v
+    |     +--linear_1d_control_weight.v
+    |     +--linear_1d_control_result.v
+    +--linear_1d_core.v

@@ -1,0 +1,16 @@
+sv work \
+        -d SIM -d VCD -d COSIM_BFM\
+        -i ../../bench/verilog\
+        -i $DIR_DPI_BFM\
+        -i ../../rtl/verilog\
+        -i ../../../../mac/mac_float/rtl/verilog\
+        -i ../../../../mac/mac_float/core/$FPGA/$VIVADO_VER\
+           ./sim_define.v\
+           ../../bench/verilog/top.v\
+           ../../bench/verilog/amba_axi_m4s2.v\
+           ../../bench/verilog/axi_to_apb.v\
+           ../../bench/verilog/mem_axi_beh.v\
+           $DPI_BFM\
+           ../../bench/verilog/tester_convolution_2d.v\
+           ../../rtl/verilog/convolution_2d.v\
+           ../../../../mac/mac_float/rtl/verilog/mac_core.v

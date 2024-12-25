@@ -1,0 +1,7 @@
+pooling_2d_one_core.c/h     Hardware control API
+
+pooling_2d_one.hpp          C++ wrapper using pooling_2d_one_core.c/h
+
+[for co-simulation]
+pooling_2d_one.cpp          C++ wrapper for specific data type to be used in C program through pooling_2d_one.h
+pooling_2d_one.h            Function prototypes for C that calls pooling_2d_one.cpp

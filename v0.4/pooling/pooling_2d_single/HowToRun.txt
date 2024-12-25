@@ -1,0 +1,14 @@
+
+[RTL simulation]
+
+1. go to 'sim/xsim' directory
+   $ cd sim/xsim
+2. run xsim
+   $ make
+
+[co-simulation]
+
+1. go to 'sim/xsim.cosim' directory
+   $ cd sim/xsim.cosim
+2. run xsim
+   $ make

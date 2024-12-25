@@ -1,0 +1,8 @@
+sv work \
+           ./sim_define.v\
+        -i ../../bench/verilog\
+           ../../bench/verilog/top.sv\
+           ../../bench/verilog/tester.sv\
+        -i ../../core/$FPGA/$VIVADO_VER\
+        -i ../../rtl/verilog\
+           ../../rtl/verilog/mac_core.v

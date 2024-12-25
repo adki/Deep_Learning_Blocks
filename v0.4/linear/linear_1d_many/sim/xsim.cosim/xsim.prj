@@ -1,0 +1,17 @@
+sv work \
+        -d SIM -d VCD -d COSIM_BFM\
+        -i ../../bench/verilog\
+        -i $DIR_DPI_BFM\
+        -i ../../rtl/verilog\
+        -i ../../../../mac/mac_integer/rtl/verilog\
+        -i ../../../../mac/tree_mac/rtl/verilog\
+           ./sim_define.v\
+           ../../bench/verilog/top.v\
+           ../../bench/verilog/amba_axi_m3s2.v\
+           ../../bench/verilog/axi_to_apb.v\
+           ../../bench/verilog/mem_axi_beh.v\
+           $DPI_BFM\
+           ../../bench/verilog/tester_linear_1d.v\
+           ../../rtl/verilog/linear_1d.v\
+           ../../../../mac/mac_integer/rtl/verilog/mac_core.v\
+           ../../../../mac/tree_mac/rtl/verilog/tree_mac.v

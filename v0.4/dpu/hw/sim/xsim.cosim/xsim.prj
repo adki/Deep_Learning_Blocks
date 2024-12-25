@@ -1,0 +1,27 @@
+sv work \
+        -d SIM -d VCD -d VIVADO -d FPGA_TYPE=$FPGA_TYPE -d VIVADO_VER=$VIVADO_VER -d COSIM_BFM\
+	-i ../../bench/verilog\
+        -i $DIR_DPI_BFM\
+        -i ../../iplib/mem_axi/rtl/verilog\
+        -i ../../iplib/mem_axi/bram_simple_dual_port/$FPGA_TYPE/$VIVADO_VER\
+        -i ../../../../convolution/convolution_2d_single/rtl/verilog\
+        -i ../../../../pooling/pooling_2d_single/rtl/verilog\
+        -i ../../../../linear/linear_1d_many/rtl/verilog\
+        -i ../../../../mover/mover_2d_single/rtl/verilog\
+        -i ../../../../mac/$MAC_DIR/rtl/verilog\
+        -i ../../../../mac/$MAC_DIR/core/$FPGA_TYPE/$VIVADO_VER\
+        -i ../../../../mac/tree_mac/rtl/verilog\
+	-i ../../design/verilog\
+           ./sim_define.v\
+           ../../bench/verilog/top.v\
+	   ../../design/verilog/fpga.v\
+           $DPI_BFM\
+           ../../iplib/mem_axi/rtl/verilog/bram_axi.v\
+           ../../iplib/mem_axi/rtl/verilog/mem_axi.v\
+           ../../iplib/mem_axi/rtl/verilog/mem_axi_beh.v\
+           ../../../../convolution/convolution_2d_single/rtl/verilog/convolution_2d.v\
+           ../../../../pooling/pooling_2d_single/rtl/verilog/pooling_2d.v\
+           ../../../../linear/linear_1d_many/rtl/verilog/linear_1d.v\
+           ../../../../mover/mover_2d_single/rtl/verilog/mover_2d.v\
+           ../../../../mac/$MAC_DIR/rtl/verilog/mac_core.v\
+           ../../../../mac/tree_mac/rtl/verilog/tree_mac.v

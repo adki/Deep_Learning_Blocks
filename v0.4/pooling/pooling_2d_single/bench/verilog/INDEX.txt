@@ -1,0 +1,22 @@
+for Co-Simulation
+
+top.v
+   |
+   +-- top_bus.v
+   |      |
+   |      +-- amba_axi_m2s.v
+   +-- top_axi_to_apb.v
+   |      |
+   |      +-- axi_to_apb.v
+   +-- top_pooling_2d.v
+   |      |
+   |      +-- pooling_2d.v
+   +-- top_mem.v
+   |      |
+   |      +-- mem_axi_beh.v
+   +-- top_tester.v
+          |
+          +-- cosim_bfm_axi.v or tester_pooling_2d.v
+                                       |
+                                       +-- axi_tasks.v
+                                       +-- pooling_2d_tasks.v
