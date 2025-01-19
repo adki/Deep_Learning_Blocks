@@ -1,0 +1,35 @@
+
+* To run CON-FMC
+  - Do not forget to program FPGA board
+
+  1. Change 'RUN_TYPE=TRX_AXI' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim
+  4. $ make sw  RUN_TYPE=TRX_AXI DATA_TYPE=float
+  5. $ make run RUN_TYPE=TRX_AXI DATA_TYPE=float
+
+* To check address map
+  src/defines_dpu.v that is derived from ../../bench.cosim/verilog/defines_system.v
+
+* How to change USR_CLK_FREQ, i.e., ACLK
+  set 'USR_CLK_FREQ' macro in 'hw/design/verilog/defines_system_source.v'
+  - Note 'defines_system.v' is driven from 'defines_system_source.v'
+* How to change DATA_TYPE
+  set 'DATA_TYPE' macro in Makefile
+* How to change AXI DATA WIDTH
+  set 'AMBA_AXI_DATA_WiDTH_VERILOG' macro in Makefile
+
+
+=========================================
+* To run co-sim
+
+  1. Change 'RUN_TYPE=COSIM_BFM' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make hw    RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+  5. $ make sw    RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+  6. $ make cosim RUN_TYPE=COSIM_BFM SIMULATOR=xsim
+
+  Note, 'DATA_TYPE=float' can cause small mis-match due to floating-point rounding.
+  Note, SIMULATOR=iverilog cannot run with 'DATA_TYPE=float'.
+

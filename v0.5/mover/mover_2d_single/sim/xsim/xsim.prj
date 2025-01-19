@@ -1,0 +1,13 @@
+sv work \
+        -i ../../bench/verilog\
+        -i ../../../../mac/mac_integer/rtl/verilog\
+        -i ../../rtl/verilog\
+           ./sim_define.v\
+           ../../bench/verilog/defines_system.v\
+           ../../bench/verilog/top.v\
+           ../../bench/verilog/amba_axi_m2s2.v\
+           ../../bench/verilog/axi_to_apb.v\
+           ../../bench/verilog/mem_axi_beh.v\
+           ../../bench/verilog/tester_mover_2d.v\
+           ../../../../mac/mac_integer/rtl/verilog/mac_core.v\
+           ../../rtl/verilog/mover_2d.v

@@ -1,0 +1,50 @@
+
+[RTL simulation for integer]
+   - RTL simulation using task-based test-bench does not deal with floating-point.
+
+   1. $ cd sim/xsim
+   2. set_vivado
+   3. $ make DATA_TYPE=INTEGER
+
+   1. $ cd sim/iveriog
+   3. $ make DATA_TYPE=INTEGER
+
+[HW/SW co-simulation]
+
+   1. $ cd sw/test_dpu
+   2. $ set_vivado; set_cosim; set_dlr
+   3. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+      - This step prepares bench/verilog/defines_system.v
+   4. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+      - This step prepares src/defines_dpu.h using bench/verilog/defines_system.v
+   5. $ make cosim RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+
+   1. $ cd sw/test_dpu
+   2. $ set_vivado; set_cosim; set_dlr
+   3. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=float SIMULATOR=xsim
+      - This step prepares bench/verilog/defines_system.v
+   4. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=float SIMULATOR=xsim
+      - This step prepares src/defines_dpu.h using bench/verilog/defines_system.v
+   5. $ make cosim RUN_TYPE=COSIM_BFM DATA_TYPE=float SIMULATOR=xsim
+
+[CON-FMC emulation]
+
+   1. $ cd syn/vivado.z7
+   2. $ set_vivado
+   3. $ make DATA_TYPE=FLOATING_POINT
+
+   4. $ cd gen_ip/vivado.z7
+   5. $ set_vivado
+   6. $ make DATA_TYPE=FLOATING_POINT
+
+   7. $ cd impl/vivado.zedboard
+   8. $ set_confmc; set_vivado
+   9. $ make DATA_TYPE=FLOATING_POINT
+   10. TCL> syn_impl
+   11. .. Vivado HW Manager .. download bit stream
+
+   12. $ cd sw/test_dpu
+   13. $ ./program_fpag.sh
+   14. $ make cleanupall
+   15. $ make sw RUN_TYPE=TRX_AXI DATA_TYPE=float
+   16. $ make run

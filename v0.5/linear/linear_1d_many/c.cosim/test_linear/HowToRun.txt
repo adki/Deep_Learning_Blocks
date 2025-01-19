@@ -1,0 +1,26 @@
+[RTL simulation for integer]
+   1. $ cd sim/xsim
+   2. set_vivado
+   3. $ make DATA_TYPE=INTEGER
+
+   1. $ cd sim/iveriog
+   3. $ make DATA_TYPE=INTEGER
+
+[HW/SW co-simulation]
+
+   1. $ cd c.cosm/test_convolution
+   2. $ set_vivado; set_cosim; set_dlr
+   3. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t
+      - This step prepares bench/verilog/defines_system.v
+   4. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t
+      - This step prepares src/defines_dpu.h using bench/verilog/defines_system.v
+   5. $ make cosim
+
+   1. $ cd c.cosm/test_convolution
+   2. $ set_vivado; set_cosim; set_dlr
+   3. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=float
+      - This step prepares bench/verilog/defines_system.v
+   4. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=float
+      - This step prepares src/defines_dpu.h using bench/verilog/defines_system.v
+   5. $ make cosim
+

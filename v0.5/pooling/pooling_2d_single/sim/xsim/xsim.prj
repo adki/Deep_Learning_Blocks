@@ -1,0 +1,11 @@
+sv work -i $DIR_BENCH\
+        -i $DIR_MAC\
+        -i $DIR_RTL\
+           ./sim_define.v\
+           $DIR_BENCH/top.v\
+           $DIR_BENCH/amba_axi_m2s2.v\
+           $DIR_BENCH/axi_to_apb.v\
+           $DIR_BENCH/mem_axi_beh.v\
+           $DIR_BENCH/tester_pooling_2d.v\
+           $DIR_MAC/mac_core.v\
+           $DIR_RTL/pooling_2d.v

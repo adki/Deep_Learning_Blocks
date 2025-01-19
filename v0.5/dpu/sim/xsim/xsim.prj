@@ -1,0 +1,20 @@
+sv work -i $DIR_BENCH\
+        -i $DIR_RTL\
+        -i $DIR_CONV\
+        -i $DIR_POOL\
+        -i $DIR_LINEAR\
+        -i $DIR_MOVER\
+        -i $DIR_MAC\
+        -i $DIR_MAC_TREE\
+           ./sim_define.v\
+           $DIR_BENCH/defines_system.v\
+           $DIR_BENCH/top.sv\
+           $DIR_RTL/dpu.v\
+           $DIR_RTL/axi_to_apb_s5.v\
+           $DIR_RTL/dpu_configuration.v\
+           $DIR_CONV/convolution_2d.v\
+           $DIR_POOL/pooling_2d.v\
+           $DIR_LINEAR/linear_1d.v\
+           $DIR_MOVER/mover_2d.v\
+           $DIR_MAC/mac_core.v\
+           $DIR_MAC_TREE/tree_mac.v

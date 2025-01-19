@@ -1,0 +1,29 @@
+
+* To run co-sim with 32-bit integer data
+
+  1. Change 'RUN_TYPE=COSIM_BFM' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+  5. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=xsim
+  6. $ make cosim SIMULATOR=xsim
+
+  1. Change 'RUN_TYPE=COSIM_BFM' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=iverilog
+  5. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=int32_t SIMULATOR=iverilog
+  6. $ make cosim SIMULATOR=iverilog
+
+* To run co-sim with 32-bit floating-point
+  - This may cause minor mis-batch due to rounding error
+
+  1. Change 'RUN_TYPE=COSIM_BFM' in 'Makefile'
+  2. $ make cleanup
+  3. $ set_dlr; set_cosim; set_vivado
+  4. $ make hw RUN_TYPE=COSIM_BFM DATA_TYPE=float
+  5. $ make sw RUN_TYPE=COSIM_BFM DATA_TYPE=float
+  6. $ make cosim
+
+* To run CON-FMC (not tested yet)
+  - refer to c.confmc
