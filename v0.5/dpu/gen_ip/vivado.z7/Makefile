@@ -31,9 +31,12 @@ export GUI            = 1
 ifeq ($(MAKECMDGOALS),$(findstring $(MAKECMDGOALS), "" "all" "vivado"))
 EDIF := ../../syn/vivado.z7/$(MODULE).edn
 ifneq ("$(wildcard $(EDIF))","")
-    RST := $(shell grep DATA_TYPE $(EDIF))
-    ifneq ($(findstring $(DATA_TYPE), $(RST)),$(DATA_TYPE))
-        $(error "$(DATA_TYPE) not match.")
+    # Vivado 2020.2 produces binary EDIF.
+    ifneq("$(VIVADO_VERSION)","2020.2")
+        RST := $(shell grep DATA_TYPE $(EDIF))
+        ifneq ($(findstring $(DATA_TYPE), $(RST)),$(DATA_TYPE))
+            $(error "$(DATA_TYPE) not match.")
+        endif
     endif
 else
     $(error "$(EDIF) not found.")
@@ -82,3 +85,4 @@ cleanupall distclean: cleanup
 	-@/bin/rm -f  $(MODULE).xpr
 	-@/bin/rm -rf src
 	-@/bin/rm -rf xgui
+
